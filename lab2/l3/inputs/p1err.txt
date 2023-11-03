@@ -1,0 +1,16 @@
+`intreg x ;
+citeste 1x ;
+intreg y = 0 ;
+intreg copy = x ;
+repeta ( copy > 0 )
+{
+y = y * 10 + copy % 10 ;
+copy = copy / 10 ;
+}
+daca ( copy == x )
+{
+tipareste true ;
+returneaza ;
+}
+tipareste false ;
+returneaza ;

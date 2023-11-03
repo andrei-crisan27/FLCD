@@ -1,0 +1,13 @@
+intreg n ;
+citeste n ;
+intreg arr[100] ;
+intreg i ;
+pentru ( i = 0 ; i < n ; i = i + 1 )
+{
+citeste arr[i] ;
+}
+intreg s = 0 ;
+pentru ( i = 0 ; i < n ; i = i + 1 ) {
+s = s + arr[i] ;
+}
+tipareste s ;

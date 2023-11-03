@@ -1,0 +1,17 @@
+intreg x ;
+citeste x ;
+intreg y = 0 ;
+intreg copy = x ;
+repeta ( copy > 0 )
+{
+y = y * 10 + copy % 10 ;
+copy = copy / 10 ;
+}
+daca ( copy == x )
+{
+tipareste "true" ;
+}
+altfel
+{
+tipareste "false" ;
+}

@@ -1,0 +1,27 @@
+intreg x ;
+citeste x ;
+intreg d ;
+intreg ok = 1 ;
+daca ( x < 2 )
+{
+ok = 0 ;
+}
+daca ( x % 2 == 0 && x != 2 )
+{
+ok = 0 ;
+}
+repeta ( d = 3 ; d * d <= x ; d = d + 2 )
+{
+daca ( x % d == 0 )
+{
+ok = 0 ;
+}
+}
+daca ( ok == 0 )
+{
+tipareste "true" ;
+}
+altfel
+{
+tipareste "false" ;
+}
