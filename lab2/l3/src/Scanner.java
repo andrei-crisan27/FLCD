@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Scanner {
     private SymbolTable ST = new SymbolTable(100);
-    private List<Pair> PIF = new ArrayList<>(); // Pair(token, st_pos); token: -1 for id, -2 for const
+    private List<PIFPair> PIF = new ArrayList<>(); // Pair(token, st_pos); token: -1 for id, -2 for const
     private String[] tokens;
 
     public Scanner(){
@@ -36,13 +36,18 @@ public class Scanner {
         String[] tokenizedFile = readTokensFromFile(filename);
         for(int i=0; i< tokenizedFile.length; i++){
             if(checkIfID(tokenizedFile[i])){
-                this.ST.add(tokenizedFile[i]);
-                this.PIF.add(new Pair(-1, this.ST.findPositionOfTerm(tokenizedFile[i]).getMainArrayPosition()));
+                if(!checkIfToken(tokenizedFile[i])){
+                    this.ST.add(tokenizedFile[i]);
+                    this.PIF.add(new PIFPair("ID", this.ST.findPositionOfTerm(tokenizedFile[i]).getMainArrayPosition()));
+                }
+                else{
+                    this.PIF.add(new PIFPair(tokenizedFile[i], -1));
+                }
             } else if(checkIfConst(tokenizedFile[i])){
                 this.ST.add(tokenizedFile[i]);
-                this.PIF.add(new Pair(-2, this.ST.findPositionOfTerm(tokenizedFile[i]).getMainArrayPosition()));
+                this.PIF.add(new PIFPair("CONST", this.ST.findPositionOfTerm(tokenizedFile[i]).getMainArrayPosition()));
             } else if(checkIfToken(tokenizedFile[i])){
-                this.PIF.add(new Pair(1, -1));
+                this.PIF.add(new PIFPair(tokenizedFile[i], -1));
             } else{
                 throw new Exception("Lexical error at word " + tokenizedFile[i]);
             }
@@ -90,8 +95,8 @@ public class Scanner {
     private void writeOutput() throws IOException {
         try (FileWriter fileWriter = new FileWriter("outputs/PIF.txt")) {
             fileWriter.write("PIF:\n");
-            for (Pair p : PIF) {
-                fileWriter.write("token: "+ p.getMainArrayPosition()+ ", ST position: " + p.getSecondaryArrayPosition() + "\n");
+            for (PIFPair p : PIF) {
+                fileWriter.write(p.toString() + "\n");
             }
         } catch (IOException e) {
         }
@@ -104,4 +109,19 @@ public class Scanner {
         System.out.println("lexically correct!");
     }
 
+}
+
+class PIFPair{
+    String token;
+    int position;
+
+    public PIFPair(String token, int position){
+        this.token = token;
+        this.position = position;
+    }
+
+    @Override
+    public String toString() {
+        return token + " " + position;
+    }
 }

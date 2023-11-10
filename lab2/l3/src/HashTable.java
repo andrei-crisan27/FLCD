@@ -63,6 +63,14 @@ public class HashTable {
 
     @Override
     public String toString() {
-        return table.toString();
+        //return table.toString();
+        StringBuilder stringBuilder = new StringBuilder();
+        for(int i=0; i<this.table.size(); i++){
+            if(this.table.get(i).size() > 0){
+                for(int j=0; j<this.table.get(i).size(); j++)
+                    stringBuilder.append(this.table.get(i).get(j)).append(" ").append(i).append("\n");
+            }
+        }
+        return stringBuilder.toString();
     }
 }

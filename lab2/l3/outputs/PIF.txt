@@ -1,66 +1,58 @@
 PIF:
-token: -1, ST position: 49
-token: -1, ST position: 10
-token: 1, ST position: -1
-token: -1, ST position: 53
-token: -1, ST position: 10
-token: 1, ST position: -1
-token: -1, ST position: 49
-token: -1, ST position: 54
-token: 1, ST position: -1
-token: -1, ST position: 49
-token: -1, ST position: 5
-token: 1, ST position: -1
-token: -1, ST position: 70
-token: 1, ST position: -1
-token: -1, ST position: 5
-token: 1, ST position: -1
-token: -2, ST position: 48
-token: 1, ST position: -1
-token: -1, ST position: 5
-token: 1, ST position: -1
-token: -1, ST position: 10
-token: 1, ST position: -1
-token: -1, ST position: 5
-token: 1, ST position: -1
-token: -1, ST position: 5
-token: 1, ST position: -1
-token: -2, ST position: 49
-token: 1, ST position: -1
-token: 1, ST position: -1
-token: -1, ST position: 53
-token: -1, ST position: 14
-token: 1, ST position: -1
-token: 1, ST position: -1
-token: -1, ST position: 49
-token: -1, ST position: 15
-token: 1, ST position: -1
-token: -2, ST position: 48
-token: 1, ST position: -1
-token: -1, ST position: 70
-token: 1, ST position: -1
-token: -1, ST position: 5
-token: 1, ST position: -1
-token: -2, ST position: 48
-token: 1, ST position: -1
-token: -1, ST position: 5
-token: 1, ST position: -1
-token: -1, ST position: 10
-token: 1, ST position: -1
-token: -1, ST position: 5
-token: 1, ST position: -1
-token: -1, ST position: 5
-token: 1, ST position: -1
-token: -2, ST position: 49
-token: 1, ST position: -1
-token: 1, ST position: -1
-token: -1, ST position: 15
-token: 1, ST position: -1
-token: -1, ST position: 15
-token: 1, ST position: -1
-token: -1, ST position: 14
-token: 1, ST position: -1
-token: 1, ST position: -1
-token: -1, ST position: 77
-token: -1, ST position: 15
-token: 1, ST position: -1
+intreg -1
+ID 20
+; -1
+citeste -1
+ID 20
+; -1
+intreg -1
+ID 21
+= -1
+CONST 48
+; -1
+intreg -1
+ID 43
+= -1
+ID 20
+; -1
+repeta -1
+( -1
+ID 43
+> -1
+CONST 48
+) -1
+{ -1
+ID 21
+= -1
+ID 21
+* -1
+CONST 97
++ -1
+ID 43
+% -1
+CONST 97
+; -1
+ID 43
+= -1
+ID 43
+/ -1
+CONST 97
+; -1
+} -1
+daca -1
+( -1
+ID 43
+== -1
+ID 20
+) -1
+{ -1
+tipareste -1
+CONST 16
+; -1
+} -1
+altfel -1
+{ -1
+tipareste -1
+CONST 91
+; -1
+} -1
