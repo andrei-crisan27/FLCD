@@ -1,0 +1,24 @@
+States -> A B C
+InitialState -> A
+OutState -> B C
+Alphabet -> 0 1 2 3 4 5 6 7 8 9
+T -> A 0 B
+T -> A 1 C
+T -> A 2 C
+T -> A 3 C
+T -> A 4 C
+T -> A 5 C
+T -> A 6 C
+T -> A 7 C
+T -> A 8 C
+T -> A 9 C
+T -> C 0 C
+T -> C 1 C
+T -> C 2 C
+T -> C 3 C
+T -> C 4 C
+T -> C 5 C
+T -> C 6 C
+T -> C 7 C
+T -> C 8 C
+T -> C 9 C

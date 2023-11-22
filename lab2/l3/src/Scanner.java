@@ -65,19 +65,21 @@ public class Scanner {
     }
 
     private boolean checkIfID(String token){
-        if((int)(token.charAt(0)) >= 97 && (int)(token.charAt(0)) <= 122){
-            for(int i=1; i<token.length(); i++){
-                if(((int)(token.charAt(i)))!=95){
-                    if(!((int)(token.charAt(i)) >= 97 && (int)(token.charAt(i)) <= 122)){
-                        if(!Character.isDigit(token.charAt(i)) && (int)(token.charAt(i))!=91 && (int)(token.charAt(i))!=93)
-                            return false;
-                    }
-                }
-            }
-        } else{
-            return false;
-        }
-        return true;
+//        if((int)(token.charAt(0)) >= 97 && (int)(token.charAt(0)) <= 122){
+//            for(int i=1; i<token.length(); i++){
+//                if(((int)(token.charAt(i)))!=95){
+//                    if(!((int)(token.charAt(i)) >= 97 && (int)(token.charAt(i)) <= 122)){
+//                        if(!Character.isDigit(token.charAt(i)) && (int)(token.charAt(i))!=91 && (int)(token.charAt(i))!=93)
+//                            return false;
+//                    }
+//                }
+//            }
+//        } else{
+//            return false;
+//        }
+//        return true;
+        FA fa = new FA("inputs/FAid.in");
+        return fa.isAccepted(token);
     }
 
     private boolean checkIfConst(String token){
@@ -85,11 +87,12 @@ public class Scanner {
             return true;
         if(token.charAt(0) == '"' && token.charAt(token.length()-1) == '"')
             return true;
-        for(int i=0; i<token.length(); i++){
-            if(!Character.isDigit(token.charAt(i)))
-                return false;
-        }
-        return true;
+//        for(int i=0; i<token.length(); i++){
+//            if(!Character.isDigit(token.charAt(i)))
+//                return false;
+//        }
+        FA fa = new FA("inputs/FAct.in");
+        return fa.isAccepted(token);
     }
 
     private void writeOutput() throws IOException {
