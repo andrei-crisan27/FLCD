@@ -39,6 +39,6 @@ public class Transition {
         for(String s: to){
             sb.append(s + " ");
         }
-        return "From: " + this.from + ", Value: " + this.to + ", To: " + sb.toString();
+        return "From: " + this.from + ", Value: " + this.value + ", To: " + sb.toString();
     }
 }

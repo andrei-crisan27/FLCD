@@ -2,35 +2,21 @@ import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-        Scanner sc = new Scanner();
-        try{
-            sc.computePif("inputs/p1.txt");
-        } catch (Exception e){
-            System.out.println(e.getMessage());
-        }
-        FA fa = new FA("inputs/FAct.in");
+        Grammar g = new Grammar("inputs/g1.txt");
         while(true){
-            System.out.println("1. Set of states");
-            System.out.println("2. The alphabet");
-            System.out.println("3. All the transitions");
-            System.out.println("4. The initial state");
-            System.out.println("5. The set of final states");
-            System.out.println("6. Check the word");
-            System.out.println("7. Close program");
+            System.out.println("1. Set of non terminals");
+            System.out.println("2. Set of terminals");
+            System.out.println("3. Set of productions");
+            System.out.println("4. Productions for a given non terminal");
+            System.out.println("5. CFG check");
+            System.out.println("6. Exit");
             var option = new java.util.Scanner(System.in).nextInt();
-            if(option > 7 || option < 1){
-                System.out.println("Invalid option");
-            } else if(option == 6){
-                if(!fa.isDFA()){
-                    System.out.println("This is not a DFA!");
-                    break;
-                }
-                var word = new java.util.Scanner(System.in).nextLine();
-                System.out.println(fa.isAccepted(word));
-            }else if(option == 7){
+            if(option == 6) {
                 break;
-            } else {
-                fa.doAction(option);
+            }else if(option > 5 || option < 1){
+                System.out.println("Invalid option");
+            } else{
+                g.doAction(option);
             }
         }
     }
