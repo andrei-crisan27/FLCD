@@ -48,6 +48,14 @@ public class Grammar {
         }
     }
 
+    private boolean checkIfCFG(){
+        for(String key: this.productions.keySet()){
+            if(key.contains(","))
+                return false;
+        }
+        return true;
+    }
+
     public void doAction(int option){
         if(option == 1){
             System.out.println(this.nonTerminals);
@@ -59,10 +67,11 @@ public class Grammar {
             String element = new java.util.Scanner(System.in).nextLine();
             System.out.println(this.productions.get(element));
         } else {
+            this.checkIfCFG();
             if(this.isCFG){
-                System.out.println("The given grammar is a CFG");
+                System.out.println("The given grammar is a CFG.");
             } else{
-                System.out.println("The given grammar is not a CFG");
+                System.out.println("The given grammar is not a CFG.");
             }
         }
     }
