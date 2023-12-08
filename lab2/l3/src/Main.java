@@ -2,7 +2,7 @@ import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-        Grammar g = new Grammar("inputs/g2.txt");
+        Grammar g = new Grammar("inputs/g1.txt");
         while(true){
             System.out.println("1. Set of non terminals");
             System.out.println("2. Set of terminals");
