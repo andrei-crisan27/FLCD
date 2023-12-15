@@ -30,12 +30,22 @@ public class Parser {
             for(String production : entry.getValue()){
                 for(int i=0; i<production.length(); i+=1){
                     if(String.valueOf(production.charAt(i)).equals(nonTerminal)){
-                        if(i == production.length() - 1){
+                        if(i == production.length() - 1 && !Objects.equals(entry.getKey(), String.valueOf(production.charAt(i)))){
                             result.append(follow(entry.getKey(), new StringBuilder()));
-                        } else if (this.grammar.getNonTerminals().contains(String.valueOf(production.charAt(i + 1)))) {
-                            result.append(first(String.valueOf(production.charAt(i + 1)), new StringBuilder()));
-                        } else if (this.grammar.getTerminals().contains(String.valueOf(production.charAt(i + 1)))) {
-                            result.append(production.charAt(i + 1));
+                        }
+                        else for(int j=i+1; j<production.length(); j+=1){
+                            if (this.grammar.getNonTerminals().contains(String.valueOf(production.charAt(j)))) {
+                                String first = first(String.valueOf(production.charAt(j)), new StringBuilder());
+                                if(!first.contains("ε")){
+                                    result.append(first);
+                                    break;
+                                } else{
+                                    result.append(first.replace("ε",""));
+                                }
+                            } else if (this.grammar.getTerminals().contains(String.valueOf(production.charAt(j)))) {
+                                result.append(production.charAt(j));
+                                break;
+                            }
                         }
                     }
                 }
