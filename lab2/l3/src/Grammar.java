@@ -77,7 +77,7 @@ public class Grammar {
         } else if (option == 4){
             String element = new java.util.Scanner(System.in).nextLine();
             System.out.println(this.productions.get(element));
-        } else {
+        } else if (option == 5) {
             this.checkIfCFG();
             if(this.checkIfCFG()){
                 System.out.println("The given grammar is a CFG.");

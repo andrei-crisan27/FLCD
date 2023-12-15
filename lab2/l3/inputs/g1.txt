@@ -1,5 +1,9 @@
-A,B
-0,1,2,3
-A
-A->1B|2B|3Bx
-B->0|2
+S,B,C,D,E,F
+a,h,c,b,g,f,ε
+S
+S->aBDh
+B->cC
+C->bC|ε
+D->EF
+E->g|ε
+F->f|ε
