@@ -4,9 +4,10 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) throws Exception {
+        String fileName="g1";
         Grammar g = new Grammar("inputs/g1.txt");
         Parser p = new Parser(g);
-        parserTests();
+        //parserTests();
         while(true){
             System.out.println("1. Set of non terminals");
             System.out.println("2. Set of terminals");
@@ -15,9 +16,10 @@ public class Main {
             System.out.println("5. CFG check");
             System.out.println("6. Compute first function for a given symbol");
             System.out.println("7. Compute follow function for a given symbol");
-            System.out.println("8. Exit");
+            System.out.println("8. Parsing table");
+            System.out.println("9. Exit");
             var option = new java.util.Scanner(System.in).nextInt();
-            if(option == 8) {
+            if(option == 9) {
                 break;
             }else if (option == 6){
                 String symbol = new java.util.Scanner(System.in).nextLine();
@@ -27,14 +29,18 @@ public class Main {
                 String symbol = new java.util.Scanner(System.in).nextLine();
                 String follow = p.follow(symbol, new StringBuilder());
                 System.out.println(follow);
-            }else if(option > 7 || option < 1){
+            }else if(option==8){
+                p.createParseTable();
+                p.printTable(fileName);
+                System.out.println(p.getParseTable());
+            }
+            else if(option > 8 || option < 1){
                 System.out.println("Invalid option");
             } else{
                 g.doAction(option);
             }
         }
     }
-
 
     static void parserTests(){
         Grammar g = new Grammar("inputs/g1.txt");

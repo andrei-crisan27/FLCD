@@ -40,10 +40,11 @@ public class Grammar {
                     String[] tokens = line.split("->");
                     String[] productions = tokens[1].split("\\|");
                     for(String s : productions){
-                        for(int i=0; i<s.length(); i++){
-                            if(this.terminals.contains(Character.toString(s.charAt(i))))
+                        String[] itemsInProduction = s.split(" ");
+                        for(String item:itemsInProduction){
+                            if(this.terminals.contains(item))
                                 continue;
-                            if(this.nonTerminals.contains(Character.toString(s.charAt(i))))
+                            if(this.nonTerminals.contains(item))
                                 continue;
                             throw new IOException();
                         }
@@ -56,7 +57,6 @@ public class Grammar {
             System.out.println("Invalid production!");
         }
     }
-
     private boolean checkIfCFG(){
         for(String key: this.productions.keySet()){
             if(key.contains(","))
